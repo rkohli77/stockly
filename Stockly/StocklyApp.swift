@@ -8,6 +8,8 @@
 import SwiftUI
 import SwiftData
 
+// Api key - KM2AH23VIVOKDBM6
+
 @main
 struct StocklyApp: App {
     var sharedModelContainer: ModelContainer = {
@@ -25,7 +27,8 @@ struct StocklyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let service: StocklyService = StocklyService()
+            ContentView(viewModel: StocksViewModel(service: service))
         }
         .modelContainer(sharedModelContainer)
     }
